@@ -1,0 +1,28 @@
+{
+  "short_name": "ANSARI HOUSE",
+  "name": "ANSARI HOUSE – Sky Manager",
+  "description": "Tenant & property management for Ansari House",
+  "icons": [
+    {
+      "src": "ansari_house_icon.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "ansari_house_icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#080c14",
+  "background_color": "#080c14",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "categories": ["business", "productivity"],
+  "prefer_related_applications": false
+}

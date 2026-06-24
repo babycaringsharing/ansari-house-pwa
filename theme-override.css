@@ -1,0 +1,482 @@
+/*
+ * ANSARI HOUSE — Colorful Theme Override + Mobile Optimization
+ * Injects over the original CSS without touching the bundle.
+ * Covers: vibrant colors, colorful icons/buttons, mobile layout polish.
+ */
+
+/* ── Google Font: Inter (modern, readable) ───────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ── CSS Variable Overrides ─────────────────────────────────────────────── */
+:root {
+  --bg-main:        #080c14;
+  --bg-card:        rgba(12, 20, 38, 0.88);
+  --bg-card-hover:  rgba(20, 32, 60, 0.95);
+  --text-main:      #f0f4ff;
+  --text-muted:     #8899bb;
+  --primary:        #7c3aed;
+  --primary-hover:  #6d28d9;
+  --accent:         #ec4899;
+  --success:        #10b981;
+  --danger:         #ef4444;
+  --warning:        #f59e0b;
+  --cyan:           #06b6d4;
+  --orange:         #f97316;
+  --border:         rgba(130, 140, 255, 0.12);
+  --input-bg:       rgba(12, 20, 38, 0.8);
+  --radius-sm:      0.5rem;
+  --radius-md:      1rem;
+  --radius-lg:      1.5rem;
+  --radius-xl:      2rem;
+  --radius-full:    9999px;
+  --shadow-glow:    0 0 60px rgba(124, 58, 237, 0.15);
+  --font:           'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: var(--font) !important;
+  background-color: var(--bg-main) !important;
+  background-image:
+    radial-gradient(ellipse at 10% 5%,  rgba(124, 58, 237, 0.18) 0px, transparent 50%),
+    radial-gradient(ellipse at 90% 90%, rgba(236, 72, 153, 0.14) 0px, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(6,  182, 212, 0.06) 0px, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(249, 115, 22,  0.06) 0px, transparent 45%) !important;
+  overscroll-behavior-y: none !important;
+}
+
+#root {
+  max-width: 480px !important;
+  border-left:  1px solid rgba(124, 58, 237, 0.15) !important;
+  border-right: 1px solid rgba(124, 58, 237, 0.15) !important;
+}
+
+/* ── App-Wide Typography ────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, p, span, div, button, a, input, label, select {
+  font-family: var(--font) !important;
+}
+
+/* ── Animated Background Orbs ──────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: -20%;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.08), transparent 70%);
+  animation: ah-orb1 20s infinite ease-in-out alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -20%;
+  right: -20%;
+  width: 55vw;
+  height: 55vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(236,72,153,0.07), transparent 70%);
+  animation: ah-orb2 25s infinite ease-in-out alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes ah-orb1 { from { transform: translate(0,0) scale(1); } to { transform: translate(10%,10%) scale(1.15); } }
+@keyframes ah-orb2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-8%,-8%) scale(1.2); } }
+
+/* ── Dashboard Hero ─────────────────────────────────────────────────────── */
+.dashboard-hero {
+  background: linear-gradient(135deg,
+    rgba(124,58,237,0.35) 0%,
+    rgba(236,72,153,0.25) 50%,
+    rgba(6,182,212,0.15) 100%) !important;
+  border: 1px solid rgba(124,58,237,0.4) !important;
+  box-shadow: 0 8px 40px rgba(124,58,237,0.2), inset 0 1px 0 rgba(255,255,255,0.1) !important;
+}
+.hero-title {
+  background: linear-gradient(135deg, #c4b5fd, #f9a8d4, #67e8f9) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.hero-icon-wrap {
+  background: linear-gradient(135deg, #7c3aed, #ec4899) !important;
+  box-shadow: 0 8px 24px rgba(124,58,237,0.5) !important;
+}
+.occupancy-fill {
+  background: linear-gradient(90deg, #7c3aed, #ec4899, #06b6d4) !important;
+  box-shadow: 0 0 12px rgba(124,58,237,0.5) !important;
+}
+
+/* ── Stat Cards — Individual Colors ────────────────────────────────────── */
+.stat-card:nth-child(1) { border-color: rgba(124,58,237,0.3) !important; }
+.stat-card:nth-child(2) { border-color: rgba(236,72,153,0.3) !important; }
+.stat-card:nth-child(3) { border-color: rgba(6,182,212,0.3) !important; }
+.stat-card:nth-child(4) { border-color: rgba(249,115,22,0.3) !important; }
+
+.stat-card:nth-child(1):hover { box-shadow: 0 8px 32px rgba(124,58,237,0.25) !important; }
+.stat-card:nth-child(2):hover { box-shadow: 0 8px 32px rgba(236,72,153,0.25) !important; }
+.stat-card:nth-child(3):hover { box-shadow: 0 8px 32px rgba(6,182,212,0.25) !important; }
+.stat-card:nth-child(4):hover { box-shadow: 0 8px 32px rgba(249,115,22,0.25) !important; }
+
+.stat-icon-wrap {
+  border-radius: 0.85rem !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important;
+}
+
+/* ── Header / Top Bar ───────────────────────────────────────────────────── */
+.header {
+  background: linear-gradient(180deg, rgba(12,20,38,0.98) 0%, rgba(8,12,20,0.92) 100%) !important;
+  border-bottom: 1px solid rgba(124,58,237,0.2) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 1px 0 rgba(124,58,237,0.1) !important;
+  padding: 1rem 1.25rem !important;
+}
+
+/* ── Bottom Navigation — Colorful Tabs ──────────────────────────────────── */
+.bottom-nav {
+  background: linear-gradient(180deg, rgba(8,12,20,0.97) 0%, rgba(12,18,32,0.99) 100%) !important;
+  border-top: 1px solid rgba(124,58,237,0.2) !important;
+  box-shadow: 0 -8px 40px rgba(0,0,0,0.6), 0 -1px 0 rgba(124,58,237,0.15) !important;
+  padding: 0.5rem 0.5rem 1.8rem !important;
+  gap: 0.25rem !important;
+}
+.nav-item {
+  border-radius: 0.85rem !important;
+  padding: 0.45rem 0.25rem !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  font-size: 0.58rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+  min-height: 52px !important;
+}
+.nav-item svg { width: 22px !important; height: 22px !important; }
+
+/* Home nav */
+.nav-item:nth-child(1).active {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa) !important;
+  box-shadow: 0 4px 20px rgba(124,58,237,0.5) !important;
+}
+/* Tenants nav */
+.nav-item:nth-child(2).active {
+  background: linear-gradient(135deg, #0891b2, #06b6d4) !important;
+  box-shadow: 0 4px 20px rgba(6,182,212,0.5) !important;
+}
+/* Lift/Water nav */
+.nav-item:nth-child(3).active {
+  background: linear-gradient(135deg, #0d9488, #14b8a6) !important;
+  box-shadow: 0 4px 20px rgba(20,184,166,0.5) !important;
+}
+.nav-item:nth-child(4).active {
+  background: linear-gradient(135deg, #db2777, #ec4899) !important;
+  box-shadow: 0 4px 20px rgba(236,72,153,0.5) !important;
+}
+.nav-item:nth-child(5).active {
+  background: linear-gradient(135deg, #d97706, #f59e0b) !important;
+  box-shadow: 0 4px 20px rgba(245,158,11,0.5) !important;
+}
+.nav-item:nth-child(6).active {
+  background: linear-gradient(135deg, #ea580c, #f97316) !important;
+  box-shadow: 0 4px 20px rgba(249,115,22,0.5) !important;
+}
+
+/* ── Buttons — Colorful Gradients ────────────────────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%) !important;
+  box-shadow: 0 8px 24px rgba(124,58,237,0.4) !important;
+  border-radius: 0.875rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  min-height: 52px !important;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #db2777 100%) !important;
+  box-shadow: 0 12px 32px rgba(124,58,237,0.55) !important;
+  transform: translateY(-2px) !important;
+}
+.btn-primary:active { transform: scale(0.96) !important; }
+
+.btn-secondary {
+  background: rgba(124,58,237,0.12) !important;
+  border: 1px solid rgba(124,58,237,0.3) !important;
+  color: #c4b5fd !important;
+  border-radius: 0.875rem !important;
+  min-height: 52px !important;
+  font-weight: 700 !important;
+}
+.btn-secondary:hover {
+  background: rgba(124,58,237,0.22) !important;
+  border-color: rgba(124,58,237,0.5) !important;
+}
+
+/* Export / special action buttons */
+.offline-export-btn {
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 60%, #06b6d4 100%) !important;
+  box-shadow: 0 6px 24px rgba(124,58,237,0.4), 0 0 0 1px rgba(255,255,255,0.08) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.04em !important;
+  border-radius: 1rem !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+.offline-export-btn:hover { transform: translateY(-2px) !important; box-shadow: 0 10px 32px rgba(124,58,237,0.55) !important; }
+
+.google-signin-btn {
+  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%) !important;
+  box-shadow: 0 6px 20px rgba(59,130,246,0.4) !important;
+  border-radius: 1rem !important;
+  font-weight: 800 !important;
+}
+
+/* Import buttons */
+.import-btn-merge {
+  background: rgba(6,182,212,0.1) !important;
+  border: 1.5px solid rgba(6,182,212,0.4) !important;
+  color: #67e8f9 !important;
+  border-radius: 1rem !important;
+}
+.import-btn-replace {
+  background: rgba(239,68,68,0.1) !important;
+  border: 1.5px solid rgba(239,68,68,0.4) !important;
+  color: #fca5a5 !important;
+  border-radius: 1rem !important;
+}
+
+/* ── Unit/Tenant Chips ──────────────────────────────────────────────────── */
+.unit-chip.occupied {
+  background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(5,150,105,0.1)) !important;
+  color: #6ee7b7 !important;
+  border-color: rgba(16,185,129,0.35) !important;
+  box-shadow: 0 2px 8px rgba(16,185,129,0.15) !important;
+}
+.unit-chip.vacant {
+  background: rgba(255,255,255,0.04) !important;
+  color: #475569 !important;
+  border-color: rgba(255,255,255,0.06) !important;
+}
+.unit-chip:hover { transform: scale(1.1) translateY(-1px) !important; }
+
+/* ── Cards ──────────────────────────────────────────────────────────────── */
+.card, .section-card, .form-section, .settings-group-card, .bill-card {
+  background: rgba(12,20,38,0.82) !important;
+  border-color: rgba(130,140,255,0.1) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+.card:hover { border-color: rgba(124,58,237,0.3) !important; }
+
+/* ── Bill Cards — Status Colors ─────────────────────────────────────────── */
+.bill-card.paid    { border-left: 3px solid #10b981 !important; box-shadow: 0 4px 20px rgba(16,185,129,0.12) !important; }
+.bill-card.pending { border-left: 3px solid #f59e0b !important; box-shadow: 0 4px 20px rgba(245,158,11,0.12) !important; }
+.bill-card.overdue { border-left: 3px solid #ef4444 !important; box-shadow: 0 4px 20px rgba(239,68,68,0.12) !important; }
+
+/* ── Input Fields ───────────────────────────────────────────────────────── */
+.input, .textarea {
+  background: rgba(12,20,38,0.7) !important;
+  border: 1px solid rgba(130,140,255,0.12) !important;
+  border-radius: 0.875rem !important;
+  color: #f0f4ff !important;
+  font-family: var(--font) !important;
+  min-height: 52px !important;
+  transition: all 0.2s ease !important;
+}
+.input:focus, .textarea:focus {
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.2), 0 0 20px rgba(124,58,237,0.15) !important;
+  background: rgba(20,30,60,0.9) !important;
+}
+.input:hover { border-color: rgba(130,140,255,0.25) !important; }
+
+/* ── Settings Icon Wraps — Colorful ─────────────────────────────────────── */
+.settings-item-icon-wrap {
+  border-radius: 0.85rem !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+.settings-item-row:hover .settings-item-icon-wrap {
+  transform: scale(1.08) rotate(-3deg) !important;
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1) !important;
+}
+.settings-item-row {
+  border-radius: 0.75rem !important;
+  transition: background 0.2s ease, transform 0.15s ease !important;
+}
+.settings-item-row:hover { background: rgba(124,58,237,0.06) !important; }
+
+/* Toggle Switch Colors */
+input:checked + .slider { background-color: #7c3aed !important; border-color: #7c3aed !important; box-shadow: 0 0 12px rgba(124,58,237,0.4) !important; }
+
+/* ── Tenant Avatar — Rainbow Gradients ──────────────────────────────────── */
+.tenant-avatar {
+  background: linear-gradient(135deg, #7c3aed, #ec4899) !important;
+  box-shadow: 0 4px 14px rgba(124,58,237,0.3) !important;
+  border-radius: 0.875rem !important;
+}
+
+/* ── Tab Buttons ────────────────────────────────────────────────────────── */
+.tab-btn.active {
+  background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%) !important;
+  box-shadow: 0 4px 16px rgba(124,58,237,0.4) !important;
+}
+.tab-container {
+  background: rgba(12,20,38,0.7) !important;
+  border-color: rgba(124,58,237,0.15) !important;
+  border-radius: 1rem !important;
+  padding: 4px !important;
+}
+
+/* ── Filter Pills ───────────────────────────────────────────────────────── */
+.filter-pill.active {
+  background: rgba(124,58,237,0.2) !important;
+  border-color: rgba(124,58,237,0.5) !important;
+  color: #c4b5fd !important;
+}
+.filter-pill { border-radius: 0.75rem !important; }
+
+/* ── Section Headers ─────────────────────────────────────────────────────── */
+.section-header {
+  background: linear-gradient(135deg, #c4b5fd, #f9a8d4) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* ── Quick Action Buttons — Colorful Icons ──────────────────────────────── */
+.qa-icon {
+  border-radius: 1.1rem !important;
+  width: 56px !important;
+  height: 56px !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35) !important;
+  transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1) !important;
+}
+.quick-action-btn:hover .qa-icon { transform: translateY(-4px) scale(1.08) !important; }
+.qa-label { font-size: 0.62rem !important; letter-spacing: 0.02em !important; }
+
+/* ── Maintenance / Maint Hero ────────────────────────────────────────────── */
+.maint-hero {
+  background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(236,72,153,0.15)) !important;
+  border-color: rgba(124,58,237,0.3) !important;
+  box-shadow: 0 8px 32px rgba(124,58,237,0.15) !important;
+}
+
+/* ── Payment Items ──────────────────────────────────────────────────────── */
+.payment-item { border-radius: 0.75rem !important; }
+.payment-item.rent        { border-left-color: #10b981 !important; }
+.payment-item.maintenance { border-left-color: #f59e0b !important; }
+
+/* ── Status Badges ───────────────────────────────────────────────────────── */
+.badge-secure   { box-shadow: 0 0 12px rgba(16,185,129,0.2) !important; }
+.badge-moderate { box-shadow: 0 0 12px rgba(245,158,11,0.2) !important; }
+.badge-high-risk { box-shadow: 0 0 12px rgba(239,68,68,0.2) !important; }
+
+/* ── Scrollbar Styling ──────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(124,58,237,0.35); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(124,58,237,0.6); }
+
+/* ── Mobile-First Optimizations ─────────────────────────────────────────── */
+@media (max-width: 480px) {
+  /* Touch targets — minimum 48px */
+  button, .btn, .btn-icon, .nav-item, .settings-item-row,
+  .unit-chip, .tab-btn, .import-btn-merge, .import-btn-replace {
+    min-height: 48px !important;
+  }
+  /* Content padding */
+  .content-area { padding: 1rem !important; padding-bottom: 110px !important; }
+  /* Typography */
+  h1 { font-size: 1.5rem !important; }
+  .hero-title { font-size: 1.2rem !important; }
+  .stat-value { font-size: 1.4rem !important; }
+  /* Nav labels */
+  .bottom-nav .nav-item span, .nav-item span { font-size: 0.54rem !important; }
+  /* Settings */
+  .settings-item-title { font-size: 0.9rem !important; }
+  .settings-item-desc  { font-size: 0.74rem !important; }
+  /* Bill cards */
+  .bill-amount { font-size: 1.2rem !important; }
+  /* Input fields */
+  .input, .textarea { font-size: 16px !important; /* prevent iOS zoom */ min-height: 52px !important; }
+  /* Quick actions */
+  .quick-actions-grid { gap: 0.4rem !important; }
+  .qa-icon { width: 50px !important; height: 50px !important; }
+  /* Stats */
+  .stats-grid { gap: 0.6rem !important; }
+  .stat-card { padding: 0.875rem !important; }
+  /* Forms */
+  .maint-field-row { grid-template-columns: 1fr !important; }
+}
+
+/* ── Safe Area Support (iPhone notch etc.) ──────────────────────────────── */
+.bottom-nav { padding-bottom: max(1.8rem, env(safe-area-inset-bottom, 1.8rem)) !important; }
+header.header, .header { padding-top: max(1rem, env(safe-area-inset-top, 1rem)) !important; }
+
+/* ── Smooth Transitions Everywhere ─────────────────────────────────────── */
+.animate-fade { animation: ah-fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards !important; }
+@keyframes ah-fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Glow on Active Route ───────────────────────────────────────────────── */
+.nav-item.active { position: relative !important; overflow: visible !important; }
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 1.1rem;
+  z-index: -1;
+  opacity: 0.35;
+  filter: blur(8px);
+  background: inherit;
+}
+
+/* ── Dashboard Section Cards ────────────────────────────────────────────── */
+.section-card {
+  border-radius: 1.25rem !important;
+  padding: 1.15rem !important;
+  transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+.section-card:hover { border-color: rgba(124,58,237,0.25) !important; }
+
+/* ── Unit Card Colors ───────────────────────────────────────────────────── */
+.unit-card.occupied::before { background: linear-gradient(180deg, #10b981, #06b6d4) !important; opacity: 1 !important; }
+
+/* ── Floor Label ────────────────────────────────────────────────────────── */
+.floor-label { color: #7c3aed !important; letter-spacing: 0.07em !important; }
+
+/* ── Recent Tenant Row ──────────────────────────────────────────────────── */
+.recent-tenant-row {
+  border-radius: 0.875rem !important;
+  border-color: rgba(124,58,237,0.1) !important;
+  transition: all 0.2s ease !important;
+}
+.recent-tenant-row:hover {
+  background: rgba(124,58,237,0.08) !important;
+  border-color: rgba(124,58,237,0.25) !important;
+}
+
+/* ── Share Button (added by backup.js) ─────────────────────────────────── */
+.ah-btn-share {
+  background: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(14,165,233,0.1)) !important;
+  border: 1px solid rgba(6,182,212,0.4) !important;
+  color: #67e8f9 !important;
+}
+.ah-btn-share:hover { background: linear-gradient(135deg, rgba(6,182,212,0.35), rgba(14,165,233,0.2)) !important; }
+
+/* ── Notification / Alert Banner ───────────────────────────────────────── */
+.test-alert-banner {
+  border: 1.5px solid rgba(168,85,247,0.6) !important;
+  background: rgba(12,20,38,0.97) !important;
+  box-shadow: 0 12px 40px rgba(124,58,237,0.3), 0 0 0 1px rgba(124,58,237,0.1) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+/* ── Status indicators ──────────────────────────────────────────────────── */
+.status-indicator.online  { box-shadow: 0 0 10px #10b981, 0 0 20px rgba(16,185,129,0.3) !important; }
+.status-indicator.warning { box-shadow: 0 0 10px #f59e0b, 0 0 20px rgba(245,158,11,0.3) !important; }
+
+/* ── Custom selection color ─────────────────────────────────────────────── */
+::selection { background: rgba(124,58,237,0.4); color: #fff; }
