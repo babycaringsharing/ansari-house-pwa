@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/ansari_house_icon.png" />
-    <link rel="apple-touch-icon" href="/ansari_house_icon.png" />
+    <link rel="icon" type="image/png" href="./ansari_house_icon.png" />
+    <link rel="apple-touch-icon" href="./ansari_house_icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#080c14" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google-signin-client_id" content="125196931265-b5uo8q9773ep6q6obs2am8tq5ig1ornq.apps.googleusercontent.com">
@@ -18,14 +18,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- App Bundle -->
-    <script type="module" crossorigin src="/assets/index-CMSMpQKi.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor-react-Co1__6Wa.js">
-    <link rel="modulepreload" crossorigin href="/assets/vendor-dexie-BBE5do0Y.js">
-    <link rel="modulepreload" crossorigin href="/assets/vendor-icons-CtWdggOv.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-Sj6wqcFK.css">
+    <script type="module" crossorigin src="./assets/index-CMSMpQKi.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/vendor-react-Co1__6Wa.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-dexie-BBE5do0Y.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-icons-CtWdggOv.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-Sj6wqcFK.css">
 
     <!-- Colorful Theme Override (loads AFTER bundle CSS to win specificity) -->
-    <link rel="stylesheet" href="/theme-override.css">
+    <link rel="stylesheet" href="./theme-override.css">
   </head>
   <body>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -33,8 +33,8 @@
 
     <!-- ─── AH Patches ──────────────────────────────────────────────────── -->
     <!-- Backup fix v2: JSON/ZIP/Share/Email/Clipboard + injected Share btn -->
-    <script src="/backup.js"></script>
-    <script src="/drive-sync.js"></script>
+    <script src="./backup.js"></script>
+    <script src="./drive-sync.js"></script>
 
     <!-- Remove "System Info" section + MutationObserver to reapply on route change -->
     <script>
@@ -57,7 +57,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').then(reg => {
+          navigator.serviceWorker.register('./sw.js').then(reg => {
             console.log('[SW] Registered:', reg.scope);
           }).catch(err => console.warn('[SW] Registration failed:', err));
         });

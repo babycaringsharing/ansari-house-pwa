@@ -4,19 +4,19 @@
  */
 const CACHE = 'ansari-house-v1';
 const PRECACHE = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/theme-override.css',
-  '/backup.js',
-  '/drive-sync.js',
-  '/ansari_house_icon.png',
-  '/favicon.svg',
-  '/assets/index-CMSMpQKi.js',
-  '/assets/vendor-react-Co1__6Wa.js',
-  '/assets/vendor-dexie-BBE5do0Y.js',
-  '/assets/vendor-icons-CtWdggOv.js',
-  '/assets/index-Sj6wqcFK.css',
+  './',
+  'index.html',
+  'manifest.json',
+  'theme-override.css',
+  'backup.js',
+  'drive-sync.js',
+  'ansari_house_icon.png',
+  'favicon.svg',
+  'assets/index-CMSMpQKi.js',
+  'assets/vendor-react-Co1__6Wa.js',
+  'assets/vendor-dexie-BBE5do0Y.js',
+  'assets/vendor-icons-CtWdggOv.js',
+  'assets/index-Sj6wqcFK.css',
 ];
 
 // Install: cache all core assets
@@ -55,7 +55,7 @@ self.addEventListener('fetch', evt => {
       }).catch(() => {
         // SPA fallback: serve index.html for navigation requests
         if (evt.request.destination === 'document') {
-          return caches.match('/index.html');
+          return caches.match('index.html');
         }
       });
     })
