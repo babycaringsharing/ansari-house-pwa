@@ -9167,7 +9167,7 @@ X.version(4).stores({
 });
 const tp = "modulepreload",
   lp = function(c) {
-    return "/" + c
+    return "./" + c
   },
   Um = {},
   Si = function(d, f, o) {
