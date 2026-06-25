@@ -18728,7 +18728,7 @@ function Op() {
       Zm.scheduleAlerts()
     })
   }, [c]), Y.useEffect(() => {
-    "serviceWorker" in navigator && navigator.serviceWorker.register("/sw.js").then(N => {
+    "serviceWorker" in navigator && navigator.serviceWorker.register("./sw.js").then(N => {
       p(N), N.addEventListener("updatefound", () => {
         const b = N.installing;
         b && b.addEventListener("statechange", () => {
@@ -18743,6 +18743,7 @@ function Op() {
     }), window.location.reload()
   };
   return c ? n.jsx(vg, {
+    basename: window.location.pathname.startsWith("/ansari-house-pwa") ? "/ansari-house-pwa" : "/",
     children: n.jsxs("div", {
       className: "flex flex-col min-h-screen",
       children: [f && n.jsxs("div", {
@@ -18804,7 +18805,7 @@ function Op() {
               boxShadow: "0 4px 12px rgba(99,102,241,0.4)"
             },
             children: n.jsx("img", {
-              src: "/ansari_house_icon.png",
+              src: "./ansari_house_icon.png",
               alt: "Ansari House",
               style: {
                 width: "100%",
